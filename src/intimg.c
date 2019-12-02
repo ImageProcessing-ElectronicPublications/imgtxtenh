@@ -330,6 +330,8 @@ int enhLocal_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2
   float maxstd = 128.0;
   if ( type == ENH_SAUVOLA_SDMAX || type == ENH_WOLF )
     minValmaxStd(img,alph,imgW,imgH,*_ii1,*_ii2,cnt,winW,&minval,&maxstd);
+  if ( type == ENH_GRAVURE )
+    meanSdCW_II(0,0,imgW,imgH,*_ii1,*_ii2,cnt,(imgW+imgH),&minval,&maxstd);
 
   minval = ( type == ENH_SAUVOLA || type == ENH_SAUVOLA_SDMAX ) ? 0 : minval;
 

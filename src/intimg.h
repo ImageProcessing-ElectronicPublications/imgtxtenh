@@ -14,6 +14,7 @@
 #define ENH_SAUVOLA        1
 #define ENH_SAUVOLA_SDMAX  2
 #define ENH_WOLF           3
+#define ENH_GRAVURE        4
 
 //#define II1 unsigned
 //#define II2 long long

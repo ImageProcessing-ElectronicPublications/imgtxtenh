@@ -22,8 +22,8 @@
 
 /*** Definitions **************************************************************/
 static char tool[] = "imgtxtenh";
-static char revnum[] = "$Revision: 248 $";
-static char revdate[] = "$Date: 2017-12-09 08:31:46 +0100 (Sat, 09 Dec 2017) $";
+static char revnum[] = "$Revision: 249 $";
+static char revdate[] = "$Date: 2019-12-02 18:00:00 +0300 (Mon, 02 Dec 2019) $";
 
 //#define __NO_PIX_UNITS__
 
@@ -71,7 +71,7 @@ void print_usage( FILE *file ) {
   fprintf( file, "\n" );
   fprintf( file, " -u (mm|pixels)  Units for ALL distance parameters (def.=%s)\n", gb_units );
   fprintf( file, " -d density      Specify the image density in pixels per cm (def.=%s)\n", strbool(gb_density) );
-  fprintf( file, " -t type:string  Local enhancement type: sauvola, sauvolaSdMax, wolf (def.=sauvola)\n" );
+  fprintf( file, " -t type:string  Local enhancement type: sauvola, sauvolaSdMax, wolf, gravure (def.=sauvola)\n" );
   fprintf( file, " -w width:float  Window width for local enhancement (def.=%gpx|%gmm)\n", gb_winW_px, gb_winW_mm );
   fprintf( file, " -k mfct:float   Local enhancement mean threshold factor (def.=%g)\n", gb_prm );
   //fprintf( file, " -K subs,thr     Automatically select mfct, use -K - for default %d,%g (def.=%s)\n", gb_autosubsamp, gb_prmthr, strbool(gb_autoprm) );
@@ -147,6 +147,8 @@ int main( int argc, char *argv[] ) {
         gb_enhtype = ENH_SAUVOLA_SDMAX;
       else if ( ! strcmp(optarg,"wolf") )
         gb_enhtype = ENH_WOLF;
+      else if ( ! strcmp(optarg,"gravure") )
+        gb_enhtype = ENH_GRAVURE;
       else {
         logger( 0, "error: incorrect input argument (-%c %s)", n, optarg );
         print_usage( logfile );
