@@ -113,7 +113,7 @@ int sd_II(II1** ii1, II2** ii2, II1** cnt, int xmin, int ymin, int xmax, int yma
 
   float mean = (float)S1/(float)numpix;
   *_sd = (((float)S2/(float)numpix - mean*mean) > 0.0) ? sqrt((float)S2/(float)numpix - mean*mean) : 0.0;
- 
+
   return EXIT_SUCCESS;
 }
 
@@ -325,15 +325,20 @@ int enhLocal_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2
   winW = winW/2;
 
   II1 **cnt = alph==NULL ? NULL : *_cnt;
-  float midval = 0;
 
   gray minval = 0;
   float maxstd = 128.0;
-  if ( type == ENH_SAUVOLA_SDMAX || type == ENH_WOLF )
+  if ( type == ENH_SAUVOLA_SDMAX || type == ENH_WOLF || type == ENH_GRAVURE )
     minValmaxStd(img,alph,imgW,imgH,*_ii1,*_ii2,cnt,winW,&minval,&maxstd);
   if ( type == ENH_GRAVURE ) {
-    meanSdCW_II(0,0,imgW,imgH,*_ii1,*_ii2,cnt,(imgW+imgH),&midval,&maxstd);
+    float midval = 0.0, fullstd = 0.0;
+    meanSdCW_II(0,0,imgW,imgH,*_ii1,*_ii2,cnt,(imgW+imgH),&midval,&fullstd);
+    midval += minval;
+    midval *= 0.5;
     minval = (gray)midval;
+    fullstd += maxstd;
+    fullstd *= 0.5;
+    maxstd = fullstd;
   }
 
   minval = ( type == ENH_SAUVOLA || type == ENH_SAUVOLA_SDMAX ) ? 0 : minval;
