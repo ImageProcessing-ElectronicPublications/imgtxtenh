@@ -25,9 +25,9 @@ int malloc_II1( int imgW, int imgH, II1*** _II, char clr );
 int malloc_II2( int imgW, int imgH, II2*** _II, char clr );
 
 int compII12_graym(gray** img, gray** alph, int imgW, int imgH, II1** ii1, II2** ii2, II1** cnt);
-int cropsum_II(II1** ii1, int xmin, int ymin, int xmax, int ymax);
-int mean_II(II1** ii1, II1** cnt, int xmin, int ymin, int xmax, int ymax, float* _mean);
-int sd_II(II1** ii1, II2** ii2, II1** cnt, int xmin, int ymin, int xmax, int ymax, float* _sd);
+//int cropsum_II(II1** ii1, int xmin, int ymin, int xmax, int ymax);
+//int mean_II(II1** ii1, II1** cnt, int xmin, int ymin, int xmax, int ymax, float* _mean);
+//int sd_II(II1** ii1, II2** ii2, II1** cnt, int xmin, int ymin, int xmax, int ymax, float* _sd);
 int meanSd_II(II1** ii1, II2** ii2, II1** cnt, int xmin, int ymin, int xmax, int ymax, float* _mean, float* _sd);
 //int enhSauvola_pixelm(pixel** img, gray** alph, int imgW, int imgH, int winW, float prm, float slp);
 int enhLocal_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2*** _ii2, II1*** _cnt, int winW, float prm, float slp, int type);

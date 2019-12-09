@@ -59,6 +59,7 @@ int compII12_graym(gray** img, gray** alph, int imgW, int imgH, II1** ii1, II2**
   return EXIT_SUCCESS;
 }
 
+/*
 int cropsum_II(II1** ii1, int xmin, int ymin, int xmax, int ymax) {
   II1 S1 = ii1[ymax][xmax];
   S1 -= (ymin>0) ? ii1[ymin-1][xmax] : 0;
@@ -67,7 +68,9 @@ int cropsum_II(II1** ii1, int xmin, int ymin, int xmax, int ymax) {
 
   return S1;
 }
+*/
 
+/*
 int mean_II(II1** ii1, II1** cnt, int xmin, int ymin, int xmax, int ymax, float* _mean) {
 
   II1 S1 = ii1[ymax][xmax];
@@ -89,7 +92,9 @@ int mean_II(II1** ii1, II1** cnt, int xmin, int ymin, int xmax, int ymax, float*
 
   return EXIT_SUCCESS;
 }
+*/
 
+/*
 int sd_II(II1** ii1, II2** ii2, II1** cnt, int xmin, int ymin, int xmax, int ymax, float* _sd) {
 
   II1 S1 = ii1[ymax][xmax];
@@ -116,6 +121,7 @@ int sd_II(II1** ii1, II2** ii2, II1** cnt, int xmin, int ymin, int xmax, int yma
 
   return EXIT_SUCCESS;
 }
+*/
 
 int meanSd_II(II1** ii1, II2** ii2, II1** cnt, int xmin, int ymin, int xmax, int ymax, float* _mean, float* _sd) {
 
@@ -354,7 +360,6 @@ int enhLocal_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2
 
   return EXIT_SUCCESS;
 }
-
 
 int enhSauvola_sample_prm_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2*** _ii2, II1*** _cnt, int winW, float slp, double *_prm, int subsamp, float prmthr) {
 
