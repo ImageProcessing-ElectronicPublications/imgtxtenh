@@ -311,7 +311,7 @@ static inline void minValmaxStd(gray** img, gray** alph, int imgW, int imgH, II1
   return EXIT_SUCCESS;
 }*/
 
-int enhLocal_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2*** _ii2, II1*** _cnt, int winW, float prm, float slp, int type) {
+int enhLocal_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2*** _ii2, II1*** _cnt, int winW, float prm, float slp, int type, float coefm, float coefs) {
 
   if(*_ii1==NULL || *_ii2==NULL) {
     int err = 0;
@@ -348,6 +348,9 @@ int enhLocal_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2
   }
 
   minval = ( type == ENH_SAUVOLA || type == ENH_SAUVOLA_SDMAX ) ? 0 : minval;
+
+  minval *= coefm;
+  maxstd *= coefs;
 
   int y;
   for(y=0;y<imgH;y++) {
