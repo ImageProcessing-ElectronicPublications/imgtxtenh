@@ -349,7 +349,7 @@ int enhLocal_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2
 
   minval = ( type == ENH_SAUVOLA || type == ENH_SAUVOLA_SDMAX ) ? 0 : minval;
 
-  minval *= coefm;
+  minval += coefm;
   maxstd *= coefs;
 
   int y;

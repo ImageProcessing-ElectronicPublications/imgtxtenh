@@ -40,7 +40,7 @@ int gb_enhtype = ENH_SAUVOLA;
 
 int gb_autosubsamp = 2;
 double gb_prmthr = 0.004;
-double gb_coef_m = 1.0;
+double gb_coef_m = 0.0;
 double gb_coef_s = 1.0;
 
 int gb_regstretch = FALSE;
@@ -91,8 +91,8 @@ void print_usage( FILE *file ) {
   fprintf( file, " -R lengths      Protect faint strokes by 4-directional RLSA: '-', '|', '/' and '\\' (def.=%g,%g,%g,%gpx|%g,%g,%g,%gmm|)\n", gb_rlsa_px[0], gb_rlsa_px[1], gb_rlsa_px[2], gb_rlsa_px[3], gb_rlsa_mm[0], gb_rlsa_mm[1], gb_rlsa_mm[2], gb_rlsa_mm[3] );
   fprintf( file, "                 lengths are 1 to 4 floats separated by commas\n" );
 
-  fprintf( file, " -x mscale:float Coefficient a of the threshold equation: t=a*M+b*S (def.=%g)\n", gb_coef_m);
-  fprintf( file, " -y sscale:float Coefficient b of the threshold equation: t=a*M+b*S (def.=%g)\n", gb_coef_s);
+  fprintf( file, " -x mplus:float  Coefficient a of the threshold equation: t=(M+a)+b*S (def.=%g)\n", gb_coef_m);
+  fprintf( file, " -y sscale:float Coefficient b of the threshold equation: t=(M+a)+b*S (def.=%g)\n", gb_coef_s);
 
   fprintf( file, " -p              Save images %s_*.png of processing steps (def.=%s)\n", tool, strbool(gb_procimgs) );
   fprintf( file, " -l lfile        Logging to 'lfile' (def.=stderr)\n" );

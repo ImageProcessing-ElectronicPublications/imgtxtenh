@@ -49,11 +49,11 @@ Area limit for small component removal (def.=6px^2|0.16mm^2)
 -R lengths
 Protect faint strokes by 4-directional RLSA: '-', '|', '/' and '\' (def.=2.4,2.4,2.4,2.4px|0.4,0.4,0.4,0.4mm|) lengths are 1 to 4 floats separated by commas
 .TP
--x mscale:float
-Coefficient a of the threshold equation: t=a*M+b*S (def.=1)
+-x mplus:float
+Coefficient a of the threshold equation: t=(M+a)+b*S (def.=0)
 .TP
 -y sscale:float
-Coefficient b of the threshold equation: t=a*M+b*S (def.=1)
+Coefficient b of the threshold equation: t=(M+a)+b*S (def.=1)
 .TP
 -p
 Save images imgtxtenh_*.png of processing steps (def.=false)
